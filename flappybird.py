@@ -215,7 +215,7 @@ def main(genomes, config):
 
 		for x, bird in enumerate(birds):
 			bird.move()
-			ge[x].fitness += 0.1
+			ge[x].fitness += 0.05
 
 			output = nets[x].activate((bird.y, abs(bird.y - pipes[pipe_ind].height), abs(bird.y - pipes[pipe_ind].bottom)))
 
@@ -227,7 +227,7 @@ def main(genomes, config):
 		for pipe in pipes:
 			for x, bird in enumerate(birds):
 				if pipe.collide(bird):
-					ge[x].fitness -= 1
+					ge[x].fitness -= 2
 					birds.pop(x)
 					nets.pop(x)
 					ge.pop(x)
